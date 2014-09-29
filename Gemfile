@@ -34,8 +34,11 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'childprocess'
 end
 
 group :test do
