@@ -2,13 +2,18 @@
 <html>
 <head>
   <title>Kenshohin Blog</title>
+  <!-- Include the application stylesheet and JavaScript -->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <!-- Prevent cross-site request forgery(CSRF), a type of malicious web attack -->
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+    <h1>
+      Blog!
+    </h1>
+<!-- This code is responsible for inserting the contents of each page into the layout -->
+    <%= yield %>
 
 </body>
 </html>
