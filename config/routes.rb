@@ -1,5 +1,8 @@
 KenshohinBlog::Application.routes.draw do
+  get "users/sign_in"
   root "static_pages#home"
+
+  get 'login' => 'users#sign_in'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
