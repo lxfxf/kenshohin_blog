@@ -44,6 +44,7 @@ end
 group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
+  gem 'minitest-reporters'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
