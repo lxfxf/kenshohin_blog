@@ -1,3 +1,16 @@
 <h1>Home Page</h1>
 <p>This is the Home Page for the kenshohin blog</p>
 <%= link_to "Login in", login_path, id: "login" %>
+
+<div class="blog-container">
+
+  <% if  @blogs_all.any? %>
+    <h3>
+      Blogs (<%= @blogs_all.count %>)
+    </h3>
+    <ol class="blogs">
+      <%= render @blogs %>
+    </ol>
+    <%= will_paginate @blogs %>
+  <% end %>
+</div>

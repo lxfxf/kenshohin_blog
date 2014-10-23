@@ -1,0 +1,11 @@
+<li>
+  <span>
+    <%= blog.content %>
+  </span>
+  <span>
+    Posted <%= time_ago_in_words(blog.created_at) %> ago.
+  </span>
+  <span>
+    <%= image_tag blog.image.url(:thumb)%>
+  </span>
+</li>

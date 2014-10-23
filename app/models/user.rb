@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   # We need to enforce uniqueness at the database level as wll as at the model level.
   # The method is to create a database index on the email column, and then require
   # that the index be unique.
+  has_many :blogs, dependent: :destroy
   attr_accessor :remember_token
   validates :name, presence: true,
             length: {maximum: 50, minimum: 3},
