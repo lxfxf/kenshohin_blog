@@ -2,10 +2,17 @@
   Write a new Blog!
 </h2>
 
-<%= form_for(@blog) do |f| %>
+<%= form_for @blog, html: { multipart: true } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class = "field">
       <%= f.text_area :content, placeholder: "Compose new blog" %>
     </div>
+    <!-- The magic is coming -->
+    <!-- Use HTML5 multiple attribute to enable multiple selection and pass back to
+         controller all files as an array, ready for paperchip!!
+         file_file_tag
+    -->
+
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
     <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

@@ -7,11 +7,17 @@ class BlogsController < ApplicationController
 
   def create
     @blog = current_user.blogs.build(blog_params)
+
     if @blog.save
-      flash[:success] = "New Blog created!"
+      @image = @blog.images.build(image_params)
+      if params[:images]
+        params[:images].each { |image|
+          @blog.images.create(image: image)
+        }
+      end
       redirect_to root_url
     elsif
-      render root_url
+      render write_path
     end
 
   end
@@ -33,4 +39,7 @@ class BlogsController < ApplicationController
       params.require(:blog).permit(:content)
     end
 
+    def image_params
+      params.require(:blog).permit(:image)
+    end
 end

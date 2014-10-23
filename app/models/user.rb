@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # that the index be unique.
   has_many :blogs, dependent: :destroy
   attr_accessor :remember_token
-  validates :name, presence: true,
+  validates :username, presence: true,
             length: {maximum: 50, minimum: 3},
             uniqueness: { case_sensitive: false }
   # Most of the secure password machinery will be implemented using a single Rails method

@@ -5,7 +5,10 @@
   <span>
     Posted <%= time_ago_in_words(blog.created_at) %> ago.
   </span>
-  <span>
-    <%= image_tag blog.image.url(:thumb)%>
-  </span>
+  <% if blog.images.any? %>
+    image list
+    <% blog.images.each do |img| %>
+      <%= image_tag img.image.url(:thumb)%>
+    <% end %>
+  <% end %>
 </li>
